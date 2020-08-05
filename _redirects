@@ -1,6 +1,3 @@
-# 404
-/* / 404
-
 # Gravatar
 /avatar.* s=:s https://gravatar.com/avatar/f91850e89d0605581d6e98132f049321.:splat?s=:s
 /avatar.* https://gravatar.com/avatar/f91850e89d0605581d6e98132f049321.:splat
