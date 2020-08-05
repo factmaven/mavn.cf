@@ -1,0 +1,20 @@
+# Gravatar
+/avatar.* s=:s https://gravatar.com/avatar/f91850e89d0605581d6e98132f049321.:splat?s=:s
+/avatar.* https://gravatar.com/avatar/f91850e89d0605581d6e98132f049321.:splat
+/avatar https://gravatar.com/avatar/f91850e89d0605581d6e98132f049321.jpg?s=500
+/ethan-osullivan.* s=:s https://gravatar.com/avatar/f91850e89d0605581d6e98132f049321.:splat?s=:s
+/ethan-osullivan.* https://gravatar.com/avatar/f91850e89d0605581d6e98132f049321.:splat
+/gravatar https://gravatar.com/avatar/f91850e89d0605581d6e98132f049321.jpg?s=500
+/avatar-work.* s=:s https://gravatar.com/avatar/4e0c10fe81bc4518be606fcc15ca0d72.:splat?s=:s
+/avatar-work.* https://gravatar.com/avatar/4e0c10fe81bc4518be606fcc15ca0d72.:splat
+/avatar-work https://gravatar.com/avatar/4e0c10fe81bc4518be606fcc15ca0d72.jpg?s=500
+
+# Applications
+/lp https://bit.ly/LPInstallerAPK
+/luckypatcher https://bit.ly/LPInstallerAPK
+/pt v=:v https://get.popcorntime.app/android/:v/mobile-armeabi-v7a-release-:v.apk
+/pt https://get.popcorntime.app/android/0.2.10/mobile-armeabi-v7a-release-0.2.10.apk
+
+# Referral Links
+/vpn https://torguard.net/aff.php?aff=2343
+/wpengine https://shareasale.com/r.cfm?b=1255604&u=924428&m=41388&urllink=&afftrack=
