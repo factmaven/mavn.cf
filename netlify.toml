@@ -21,3 +21,18 @@ exclude = [
 # Submit Sitemap
 [[plugins]]
 package = "netlify-plugin-submit-sitemap"
+
+# Minify HTML
+[[plugins]]
+package = "netlify-plugin-minify-html"
+
+[plugins.inputs]
+contexts = [
+    "production",
+    "branch-deploy",
+    "deploy-preview"
+]
+
+[plugins.inputs.minifierOptions]
+removeComments = true
+collapseInlineTagWhitespace = false
