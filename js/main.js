@@ -74,4 +74,11 @@
             150
         ))
     }
+
+    // Display current year
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+    // var date=new Date(),
+    // year = date.getFullYear(),
+    // text = "&copy; " + year + " Fact Maven. All rights reserved.";
+    // document.getElementById("copyright").innerHTML=text;
 }())
