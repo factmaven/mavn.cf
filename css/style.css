@@ -382,7 +382,7 @@ h6,
 .h5,
 .h6 {
     clear: both;
-    color: #fff;
+    color: #ffffff;
     font-family: "Titillium Web", sans-serif;
     font-weight: 600
 }
@@ -1115,7 +1115,7 @@ label {
 
 .input,
 .textarea {
-    background-color: #fff;
+    background-color: #ffffff;
     border-width: 1px;
     border-style: solid;
     border-color: #454C4C;
@@ -1527,7 +1527,7 @@ main {
 
 .site-footer a:hover,
 .site-footer a:active {
-    color: #fff;
+    color: #ffffff;
     text-decoration: underline
 }
 
