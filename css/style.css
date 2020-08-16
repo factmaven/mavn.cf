@@ -1113,10 +1113,6 @@ label {
     padding-left: 64px
 }
 
-.sr .has-animations .is-revealing {
-    visibility: hidden
-}
-
 .input,
 .textarea {
     background-color: #fff;
