@@ -10,7 +10,7 @@ let pushJSON = (address, longurl, shorturl) => {
 };
 
 let cinp = () => {
-    document.getElementById("erbox").innerHTML = "";
+    document.getElementById("url-error").innerHTML = "";
     let cival = document.getElementById("custominput").value;
 
     let res = JSON.parse(fetchJSON(endpoint + '/?q=s:' + cival))[0]["l"];
@@ -103,29 +103,29 @@ let shorturl = () => {
     let cre = /^([a-zA-Z0-9 _-]+)$/;
     let protocol_ok = re.test(longurl);
     if (!protocol_ok) {
-        document.getElementById("erbox").style.color = "red";
-        document.getElementById("erbox").innerHTML = "❌ Invalid URL";
+        document.getElementById("url-error").style.color = "red";
+        document.getElementById("url-error").innerHTML = "❌ Invalid URL";
     } else {
-        document.getElementById("erbox").innerHTML = "";
+        document.getElementById("url-error").innerHTML = "";
         if (document.getElementById("custominput").value == "") {
             genhash();
             send_request(longurl);
         } else {
             if (cre.test(document.getElementById("custominput").value)) {
                 if (cinp()) {
-                    document.getElementById("erbox").style.color = "cyan";
-                    document.getElementById("erbox").innerHTML = " Custom Address Available ✔️";
+                    document.getElementById("url-error").style.color = "cyan";
+                    document.getElementById("url-error").innerHTML = " Custom Address Available ✔️";
                     genhash();
                     send_request(longurl);
                 } else {
-                    document.getElementById("erbox").style.color = "red";
-                    document.getElementById("erbox").innerHTML = "❌ Custom Address Already Used, Choose Another";
+                    document.getElementById("url-error").style.color = "red";
+                    document.getElementById("url-error").innerHTML = "❌ Custom Address Already Used, Choose Another";
                     document.getElementById("custominput").placeholder = document.getElementById("custominput").value;
                     document.getElementById("custominput").value = "";
                 }
             } else {
-                document.getElementById("erbox").style.color = "red";
-                document.getElementById("erbox").innerHTML = "Invalid Custom URL! Use only Alphanumerics and underscore!";
+                document.getElementById("url-error").style.color = "red";
+                document.getElementById("url-error").innerHTML = "Invalid Custom URL! Use only Alphanumerics and underscore!";
                 document.getElementById("custominput").placeholder = document.getElementById("custominput").value;
                 document.getElementById("custominput").value = "";
             }
