@@ -17,8 +17,8 @@ function isURL(a) {
 }
 var hashh = window.location.hash.substr(1);
 if (window.location.hash != "") {
-    var res = JSON.parse(fetchJSON(endpoint + "/?q=s:" + hashh))[0];
-    var data = res["l"];
+    var res = JSON.parse(fetchJSON(endpoint + "/?q=alias:" + hashh))[0];
+    var data = res["url"];
     console.log(data);
     if (data != null) {
         if (isURL(data)) {
