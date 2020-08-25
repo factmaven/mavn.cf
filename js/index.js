@@ -1,24 +1,24 @@
-let pushJSON = (address, longurl, shorturl) => {
+let postJsonbox = (address, longUrl, shortUrl) => {
     let request = new XMLHttpRequest();
     request.open("POST", address);
-    request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     let data = {
-        "url": longurl,
-        "alias": shorturl
+        "url": longUrl,
+        "alias": shortUrl
     };
     request.send(JSON.stringify(data));
 };
 
-let cinp = () => {
+let checkCustomUrlAlias = () => {
     document.getElementById("error-message").innerHTML = "";
-    let cival = document.getElementById("url-alias").value;
+    let customAlias = document.getElementById("url-alias").value;
     
-    let res = JSON.parse(fetchJSON(endpoint + "/?q=alias:" + cival))
-    if (res.length === 0){
+    let jsonResponse = JSON.parse(getJsonbox(endpoint + "/?q=alias:" + customAlias))
+    if (jsonResponse.length === 0){
         return true;
     }
-    res = res[0]["url"]
-    let data = res;
+    jsonResponse = jsonResponse[0]["url"]
+    let data = jsonResponse;
 
     if (data != null) {
         return false;
@@ -27,45 +27,45 @@ let cinp = () => {
     }
 };
 
-let geturl = () => {
+let getUrl = () => {
     let url = document.getElementById("long-url").value;
     return url;
 
 };
 
-let getrandom = () => {
-    let text = "";
-    let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+let generateShortcode = () => {
+    let shortcode = "";
+    let possibleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for (let i = 0; i < 5; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+        shortcode += possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length));
     }
-    return text;
+    return shortcode;
 };
 
-let genhash = () => {
+let generateHash = () => {
     if (document.getElementById("url-alias").value == "") {
-        window.location.hash = getrandom();
-        check_is_unique();
+        window.location.hash = generateShortcode();
+        checkIsUnique();
     } else {
         window.location.hash = document.getElementById("url-alias").value;
     }
 };
 
-let check_is_unique = () => {
+let checkIsUnique = () => {
     let url = window.location.hash.substr(1);
-    let res = JSON.parse(fetchJSON(endpoint + "/?q=alias:" + url))[0];
-    let data = res;
+    let jsonResponse = JSON.parse(getJsonbox(endpoint + "/?q=alias:" + url))[0];
+    let data = jsonResponse;
 
     if (data != null) {
-        genhash();
+        generateHash();
     }
 };
 
-let copyer = (containerid) => {
-    let elt = document.getElementById(containerid);
+let copyToClipboard = (containerid) => {
+    let elementType = document.getElementById(containerid);
     if (document.selection) { // IE
-        if (elt.nodeName.toLowerCase() === "input") {
+        if (elementType.nodeName.toLowerCase() === "input") {
             document.getElementById(containerid).select();
             document.execCommand("copy");
         } else {
@@ -75,7 +75,7 @@ let copyer = (containerid) => {
             document.execCommand("copy");
         }
     } else if (window.getSelection) {
-        if (elt.nodeName.toLowerCase() === "input") {
+        if (elementType.nodeName.toLowerCase() === "input") {
             document.getElementById(containerid).select();
             document.execCommand("copy");
         } else {
@@ -88,35 +88,34 @@ let copyer = (containerid) => {
     }
 };
 
-let send_request = (url) => {
-    let longurl = url;
-    let shorturl = window.location.hash.substr(1)
+let sendRequest = (url) => {
+    let longUrl = url;
+    let shortUrl = window.location.hash.substr(1)
     let address = endpoint + "/";
-    pushJSON(address, longurl, shorturl);
-
+    postJsonbox(address, longUrl, shortUrl);
     document.getElementById("short-url").value = window.location.href;
     document.getElementById("sucess-message").innerHTML = "Short URL Copied to Clipboard!";
-    copyer("short-url");
+    copyToClipboard("short-url");
 };
 
-let shorturl = () => {
-    let longurl = geturl();
-    let re = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
-    let cre = /^([a-zA-Z0-9 _-]+)$/;
-    let protocol_ok = re.test(longurl);
-    if (!protocol_ok) {
+let shortUrl = () => {
+    let longUrl = getUrl();
+    let urlRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
+    let customAliasRegex = /^([a-zA-Z0-9 _-]+)$/;
+    let prococolValid = urlRegex.test(longUrl);
+    if (!prococolValid) {
         document.getElementById("error-message").innerHTML = "❌ Invalid URL";
     } else {
         document.getElementById("error-message").innerHTML = "";
         if (document.getElementById("url-alias").value == "") {
-            genhash();
-            send_request(longurl);
+            generateHash();
+            sendRequest(longUrl);
         } else {
-            if (cre.test(document.getElementById("url-alias").value)) {
-                if (cinp()) {
+            if (customAliasRegex.test(document.getElementById("url-alias").value)) {
+                if (checkCustomUrlAlias()) {
                     document.getElementById("error-message").innerHTML = " Custom Address Available ✔️";
-                    genhash();
-                    send_request(longurl);
+                    generateHash();
+                    sendRequest(longUrl);
                 } else {
                     document.getElementById("error-message").innerHTML = "❌ Custom Address Already Used, Choose Another";
                     document.getElementById("url-alias").placeholder = document.getElementById("url-alias").value;
@@ -130,4 +129,4 @@ let shorturl = () => {
         }
     }
 };
-document.getElementById("submit-button").addEventListener("click", shorturl);
+document.getElementById("submit-button").addEventListener("click", shortUrl);

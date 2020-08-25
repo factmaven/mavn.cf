@@ -1,24 +1,24 @@
 var endpoint = "https://jsonbox.io/box_0394827869549f2a7393";
 
-function fetchJSON(a) {
-    var f = new XMLHttpRequest;
-    f.open("GET", a, false);
-    f.send(null);
-    return f.responseText
+function getJsonbox(urlRequest) {
+    var request = new XMLHttpRequest;
+    request.open("GET", urlRequest, false);
+    request.send(null);
+    return request.responseText;
 }
 
-function isURL(a) {
-    let url = a
-    if (!a.startsWith("javascript:")) {
+function isURL(urlRequest) {
+    let url = urlRequest
+    if (!urlRequest.startsWith("javascript:")) {
         return true;
     } else {
         return false;
     }
 }
-var hashh = window.location.hash.substr(1);
+var hashtag = window.location.hash.substr(1);
 if (window.location.hash != "") {
-    var res = JSON.parse(fetchJSON(endpoint + "/?q=alias:" + hashh))[0];
-    var data = res["url"];
+    var jsonReponse = JSON.parse(getJsonbox(endpoint + "/?q=alias:" + hashtag))[0];
+    var data = jsonReponse["url"];
     console.log(data);
     if (data != null) {
         if (isURL(data)) {
