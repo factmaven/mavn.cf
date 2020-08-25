@@ -51,16 +51,16 @@
                             <p class="hero-paragraph is-revealing">MAVN Click Finder is a free, simple, and easy-to-use tool to shorten any long URL into something easier to remember and share.</p>
                             <div class="hero-form field field-grouped is-revealing">
                                 <div class="control control-expanded">
-                                    <input class="input" type="url" id="long-url" placeholder="Paste your long URL">
-                                    <input class="input" type="text" minlength="4" maxlength="20" id="custom-alias" placeholder="Custom alias (optional)">
-                                    <p id="url-error"></p>                             
+                                    <input class="input" type="url" id="urlinput" placeholder="Paste your long URL">
+                                    <input class="input" type="text" maxlength="20" id="custominput" placeholder="Custom alias (optional)">
+                                    <p id="erbox" style="color:red;"></p>                             
                                 </div>
                                 <div class="control">
-                                    <button class="button button-primary button-block" type="button" id="shorten-url">Shorten URL</button>
+                                    <button class="button button-primary button-block" type="button" id="sbtn">Shorten URL</button>
                                 </div>
                             </div>
                             <div class="form" style="margin-bottom : 0px !important;">
-                                <input class="input" type="text" id="short-url" placeholder="Your new URL here">
+                                <input class="input" type="text" id="shortenedURL" placeholder="Your new URL here">
                                 <p id="sucess" style="color:#43F1FF"></p>
                             </div>
                         </div>
