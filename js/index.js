@@ -20,16 +20,11 @@ let cinp = () => {
     res = res[0]["url"]
     let data = res;
 
-
     if (data != null) {
         return false;
-
     } else if (data == null) {
         return true;
-
     }
-
-
 };
 
 let geturl = () => {
@@ -42,8 +37,9 @@ let getrandom = () => {
     let text = "";
     let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    for (let i = 0; i < 5; i++)
+    for (let i = 0; i < 5; i++) {
         text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
     return text;
 };
 
@@ -53,7 +49,6 @@ let genhash = () => {
         check_is_unique();
     } else {
         window.location.hash = document.getElementById("url-alias").value;
-
     }
 };
 
@@ -65,8 +60,6 @@ let check_is_unique = () => {
     if (data != null) {
         genhash();
     }
-
-
 };
 
 let copyer = (containerid) => {
@@ -81,7 +74,6 @@ let copyer = (containerid) => {
             range.select();
             document.execCommand("copy");
         }
-
     } else if (window.getSelection) {
         if (elt.nodeName.toLowerCase() === "input") {
             document.getElementById(containerid).select();
@@ -113,37 +105,29 @@ let shorturl = () => {
     let cre = /^([a-zA-Z0-9 _-]+)$/;
     let protocol_ok = re.test(longurl);
     if (!protocol_ok) {
-        document.getElementById("error-message").style.color = "red";
         document.getElementById("error-message").innerHTML = "❌ Invalid URL";
     } else {
         document.getElementById("error-message").innerHTML = "";
         if (document.getElementById("url-alias").value == "") {
             genhash();
             send_request(longurl);
-
         } else {
             if (cre.test(document.getElementById("url-alias").value)) {
                 if (cinp()) {
-                    document.getElementById("error-message").style.color = "cyan";
                     document.getElementById("error-message").innerHTML = " Custom Address Available ✔️";
                     genhash();
                     send_request(longurl);
                 } else {
-                    document.getElementById("error-message").style.color = "red";
                     document.getElementById("error-message").innerHTML = "❌ Custom Address Already Used, Choose Another";
                     document.getElementById("url-alias").placeholder = document.getElementById("url-alias").value;
                     document.getElementById("url-alias").value = "";
                 }
             } else {
-                document.getElementById("error-message").style.color = "red";
                 document.getElementById("error-message").innerHTML = "Invalid Custom URL! Use only Alphanumerics and underscore!";
                 document.getElementById("url-alias").placeholder = document.getElementById("url-alias").value;
                 document.getElementById("url-alias").value = "";
-
             }
         }
-
-
     }
 };
 document.getElementById("submit-button").addEventListener("click", shorturl);

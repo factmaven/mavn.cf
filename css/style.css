@@ -1305,6 +1305,14 @@ button, input, select, textarea, label {
     }
 }
 
+#error-message {
+    color: #ff0000;
+}
+
+#sucess-message {
+    color: #43F1FF;
+}
+
 .feature {
     padding-top: 16px;
     padding-bottom: 16px;
