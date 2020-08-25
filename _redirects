@@ -28,3 +28,6 @@
 # Referral Links
 /vpn https://torguard.net/aff.php?aff=2343
 /wpengine https://shareasale.com/r.cfm?b=1255604&u=924428&m=41388&urllink=&afftrack=
+
+# Dynamic Redirects
+/amz/:splat https://amzn.com/:splat
