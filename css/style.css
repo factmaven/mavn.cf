@@ -1417,7 +1417,7 @@ main {
     padding-bottom: 32px;
 }
 
-.footer-social-links, .footer-copyright {
+.footer-copyright {
     flex: none;
     width: 100%;
     display: inline-flex;
@@ -1426,22 +1426,6 @@ main {
 
 .footer-copyright {
     margin-bottom: 24px;
-}
-
-.footer-social-links {
-    margin-bottom: 0;
-}
-
-.footer-social-links li {
-    display: inline-flex;
-}
-
-.footer-social-links li+li {
-    margin-left: 16px;
-}
-
-.footer-social-links li a {
-    padding: 8px;
 }
 
 @media (min-width: 641px) {
@@ -1463,14 +1447,11 @@ main {
     .site-footer-inner {
         justify-content: space-between;
     }
-    .footer-social-links, .footer-copyright {
+    .footer-copyright {
         flex: 50%;
     }
     .footer-copyright {
         margin-bottom: 0;
         justify-content: flex-start;
-    }
-    .footer-social-links {
-        justify-content: flex-end;
     }
 }
