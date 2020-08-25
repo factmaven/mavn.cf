@@ -3,8 +3,8 @@ let pushJSON = (address, longurl, shorturl) => {
     request.open('POST', address);
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
     let data = {
-        "l": longurl,
-        "s": shorturl
+        "url": longurl,
+        "alias": shorturl
     };
     request.send(JSON.stringify(data));
 };
@@ -13,11 +13,11 @@ let cinp = () => {
     document.getElementById("erbox").innerHTML = "";
     let cival = document.getElementById("custominput").value;
     
-    let res = JSON.parse(fetchJSON(endpoint + '/?q=s:' + cival))
+    let res = JSON.parse(fetchJSON(endpoint + '/?q=alias:' + cival))
     if (res.length === 0){
         return true;
     }
-    res = res[0]["l"]
+    res = res[0]["url"]
     let data = res;
 
 
@@ -59,7 +59,7 @@ let genhash = () => {
 
 let check_is_unique = () => {
     let url = window.location.hash.substr(1);
-    let res = JSON.parse(fetchJSON(endpoint + '/?q=s:' + url))[0];
+    let res = JSON.parse(fetchJSON(endpoint + '/?q=alias:' + url))[0];
     let data = res;
 
     if (data != null) {
