@@ -100,7 +100,6 @@ let send_request = (url) => {
     let longurl = url;
     let shorturl = window.location.hash.substr(1)
     let address = endpoint + "/";
-    // console.log(address)
     pushJSON(address, longurl, shorturl);
 
     document.getElementById('shortenedURL').value = window.location.href;
@@ -148,14 +147,3 @@ let shorturl = () => {
     }
 };
 document.getElementById("sbtn").addEventListener("click", shorturl);
-
-console.log(`
-███████╗ ██████╗ ███████╗███████╗██╗   ██╗██████╗ ██╗     
-██╔════╝██╔═══██╗██╔════╝██╔════╝██║   ██║██╔══██╗██║     
-█████╗  ██║   ██║███████╗███████╗██║   ██║██████╔╝██║     
-██╔══╝  ██║   ██║╚════██║╚════██║██║   ██║██╔══██╗██║     
-██║     ╚██████╔╝███████║███████║╚██████╔╝██║  ██║███████╗
-╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
-                                                                                                                               
-PLEASE DON'T TYPE ANYTHING BELLOW UNLESS YOU ARE A DEVELOPER!
-`)
