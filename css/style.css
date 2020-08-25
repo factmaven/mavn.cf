@@ -1035,7 +1035,7 @@ button, input, select, textarea, label {
 }
 
 .input[disabled], .textarea[disabled] {
-    cursor: not-allowed;
+    color: #43F1FF;
     background-color: #222424;
     border-color: #222424;
 }
