@@ -96,7 +96,7 @@ let sendRequest = (url) => {
     let address = endpoint + "/";
     postJsonbox(address, longUrl, shortUrl);
     document.getElementById("short-url").value = window.location.href;
-    document.getElementById("sucess-message").innerHTML = "Short URL Copied to Clipboard!";
+    document.getElementById("sucess-message").innerHTML = "Short URL created and copied to clipboard";
     copyToClipboard("short-url");
 };
 
