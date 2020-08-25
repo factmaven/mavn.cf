@@ -1,7 +1,7 @@
 let pushJSON = (address, longurl, shorturl) => {
     let request = new XMLHttpRequest();
-    request.open('POST', address);
-    request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    request.open("POST", address);
+    request.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     let data = {
         "url": longurl,
         "alias": shorturl
@@ -10,10 +10,10 @@ let pushJSON = (address, longurl, shorturl) => {
 };
 
 let cinp = () => {
-    document.getElementById("erbox").innerHTML = "";
-    let cival = document.getElementById("custominput").value;
+    document.getElementById("error-message").innerHTML = "";
+    let cival = document.getElementById("url-alias").value;
     
-    let res = JSON.parse(fetchJSON(endpoint + '/?q=alias:' + cival))
+    let res = JSON.parse(fetchJSON(endpoint + "/?q=alias:" + cival))
     if (res.length === 0){
         return true;
     }
@@ -33,7 +33,7 @@ let cinp = () => {
 };
 
 let geturl = () => {
-    let url = document.getElementById("urlinput").value;
+    let url = document.getElementById("long-url").value;
     return url;
 
 };
@@ -48,18 +48,18 @@ let getrandom = () => {
 };
 
 let genhash = () => {
-    if (document.getElementById("custominput").value == "") {
+    if (document.getElementById("url-alias").value == "") {
         window.location.hash = getrandom();
         check_is_unique();
     } else {
-        window.location.hash = document.getElementById("custominput").value;
+        window.location.hash = document.getElementById("url-alias").value;
 
     }
 };
 
 let check_is_unique = () => {
     let url = window.location.hash.substr(1);
-    let res = JSON.parse(fetchJSON(endpoint + '/?q=alias:' + url))[0];
+    let res = JSON.parse(fetchJSON(endpoint + "/?q=alias:" + url))[0];
     let data = res;
 
     if (data != null) {
@@ -102,9 +102,9 @@ let send_request = (url) => {
     let address = endpoint + "/";
     pushJSON(address, longurl, shorturl);
 
-    document.getElementById('shortenedURL').value = window.location.href;
-    document.getElementById('sucess').innerHTML = "Short URL Copied to Clipboard!";
-    copyer("shortenedURL");
+    document.getElementById("short-url").value = window.location.href;
+    document.getElementById("sucess-message").innerHTML = "Short URL Copied to Clipboard!";
+    copyer("short-url");
 };
 
 let shorturl = () => {
@@ -113,32 +113,32 @@ let shorturl = () => {
     let cre = /^([a-zA-Z0-9 _-]+)$/;
     let protocol_ok = re.test(longurl);
     if (!protocol_ok) {
-        document.getElementById("erbox").style.color = "red";
-        document.getElementById("erbox").innerHTML = "❌ Invalid URL";
+        document.getElementById("error-message").style.color = "red";
+        document.getElementById("error-message").innerHTML = "❌ Invalid URL";
     } else {
-        document.getElementById("erbox").innerHTML = "";
-        if (document.getElementById("custominput").value == "") {
+        document.getElementById("error-message").innerHTML = "";
+        if (document.getElementById("url-alias").value == "") {
             genhash();
             send_request(longurl);
 
         } else {
-            if (cre.test(document.getElementById("custominput").value)) {
+            if (cre.test(document.getElementById("url-alias").value)) {
                 if (cinp()) {
-                    document.getElementById("erbox").style.color = "cyan";
-                    document.getElementById("erbox").innerHTML = " Custom Address Available ✔️";
+                    document.getElementById("error-message").style.color = "cyan";
+                    document.getElementById("error-message").innerHTML = " Custom Address Available ✔️";
                     genhash();
                     send_request(longurl);
                 } else {
-                    document.getElementById("erbox").style.color = "red";
-                    document.getElementById("erbox").innerHTML = "❌ Custom Address Already Used, Choose Another";
-                    document.getElementById("custominput").placeholder = document.getElementById("custominput").value;
-                    document.getElementById("custominput").value = "";
+                    document.getElementById("error-message").style.color = "red";
+                    document.getElementById("error-message").innerHTML = "❌ Custom Address Already Used, Choose Another";
+                    document.getElementById("url-alias").placeholder = document.getElementById("url-alias").value;
+                    document.getElementById("url-alias").value = "";
                 }
             } else {
-                document.getElementById("erbox").style.color = "red";
-                document.getElementById("erbox").innerHTML = "Invalid Custom URL! Use only Alphanumerics and underscore!";
-                document.getElementById("custominput").placeholder = document.getElementById("custominput").value;
-                document.getElementById("custominput").value = "";
+                document.getElementById("error-message").style.color = "red";
+                document.getElementById("error-message").innerHTML = "Invalid Custom URL! Use only Alphanumerics and underscore!";
+                document.getElementById("url-alias").placeholder = document.getElementById("url-alias").value;
+                document.getElementById("url-alias").value = "";
 
             }
         }
@@ -146,4 +146,4 @@ let shorturl = () => {
 
     }
 };
-document.getElementById("sbtn").addEventListener("click", shorturl);
+document.getElementById("submit-button").addEventListener("click", shorturl);
