@@ -12,11 +12,12 @@ let postJsonbox = (address, longUrl, shortUrl) => {
 let checkCustomUrlAlias = () => {
     document.getElementById("error-message").innerHTML = "";
     let customAlias = document.getElementById("url-alias").value;
-    
-    let jsonResponse = JSON.parse(getJsonbox(endpoint + "/?q=alias:" + customAlias))
+    let jsonResponse = JSON.parse(getJsonbox(endpoint + "/?q=alias:" + customAlias));
+
     if (jsonResponse.length === 0){
         return true;
     }
+
     jsonResponse = jsonResponse[0]["url"]
     let data = jsonResponse;
 
@@ -29,8 +30,8 @@ let checkCustomUrlAlias = () => {
 
 let getUrl = () => {
     let url = document.getElementById("long-url").value;
-    return url;
 
+    return url;
 };
 
 let generateShortcode = () => {
@@ -64,6 +65,7 @@ let checkIsUnique = () => {
 
 let copyToClipboard = (containerid) => {
     let elementType = document.getElementById(containerid);
+
     if (document.selection) { // IE
         if (elementType.nodeName.toLowerCase() === "input") {
             document.getElementById(containerid).select();
@@ -103,8 +105,9 @@ let shortUrl = () => {
     let urlRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
     let customAliasRegex = /^([a-zA-Z0-9 _-]+)$/;
     let prococolValid = urlRegex.test(longUrl);
+
     if (!prococolValid) {
-        document.getElementById("error-message").innerHTML = "❌ Invalid URL";
+        document.getElementById("error-message").innerHTML = "Invalid input. Make sure it starts with <code>http://</code> or <code>https://</code>";
     } else {
         document.getElementById("error-message").innerHTML = "";
         if (document.getElementById("url-alias").value == "") {
@@ -113,18 +116,12 @@ let shortUrl = () => {
         } else {
             if (customAliasRegex.test(document.getElementById("url-alias").value)) {
                 if (checkCustomUrlAlias()) {
-                    document.getElementById("error-message").innerHTML = " Custom Address Available ✔️";
                     generateHash();
                     sendRequest(longUrl);
                 } else {
-                    document.getElementById("error-message").innerHTML = "❌ Custom Address Already Used, Choose Another";
-                    document.getElementById("url-alias").placeholder = document.getElementById("url-alias").value;
-                    document.getElementById("url-alias").value = "";
-                }
+                    document.getElementById("error-message").innerHTML = "Custom alias in use, choose another alias";                }
             } else {
-                document.getElementById("error-message").innerHTML = "Invalid Custom URL! Use only Alphanumerics and underscore!";
-                document.getElementById("url-alias").placeholder = document.getElementById("url-alias").value;
-                document.getElementById("url-alias").value = "";
+                document.getElementById("error-message").innerHTML = "Use only alphanumerics and underscore";
             }
         }
     }
