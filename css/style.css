@@ -581,7 +581,7 @@ button, input, select, textarea, label {
     display: block;
     font-size: 16px;
     letter-spacing: -0.1px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 16px;
     text-decoration: none;
     background-color: #141516;
@@ -1111,7 +1111,7 @@ button, input, select, textarea, label {
     display: inline-flex;
     font-size: 16px;
     letter-spacing: -0.1px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 16px;
     text-decoration: none !important;
     background-color: #141516;
