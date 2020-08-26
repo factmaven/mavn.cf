@@ -1,3 +1,21 @@
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    src: local("Montserrat Bold"), local("Montserrat-Bold"),
+    url("../fonts/montserrat-v14-latin-700.woff2") format("woff2"),
+    url("../fonts/montserrat-v14-latin-700.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Montserrat Regular"), local("Montserrat-Regular"),
+    url("../fonts/montserrat-v14-latin-regular.woff2") format("woff2"),
+    url("../fonts/montserrat-v14-latin-regular.woff") format("woff");
+}
+
 html {
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
@@ -311,7 +329,8 @@ body {
 }
 
 body, button, input, select, textarea {
-    font-family: "Heebo", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
 }
 
 a {
@@ -327,8 +346,8 @@ a:hover, a:active {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     clear: both;
     color: #ffffff;
-    font-family: "Titillium Web", sans-serif;
-    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
 }
 
 h1, .h1 {
@@ -606,7 +625,7 @@ button, input, select, textarea, label {
 }
 
 .has-top-divider::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -621,7 +640,7 @@ button, input, select, textarea, label {
 }
 
 .has-bottom-divider::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1115,7 +1134,7 @@ button, input, select, textarea, label {
 }
 
 .button-shadow::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
