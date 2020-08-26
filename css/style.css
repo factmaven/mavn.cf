@@ -1201,15 +1201,11 @@ button, input, select, textarea, label {
 }
 
 .header-links a:not(.button) {
-    font-size: 16px;
-    line-height: 30px;
-    letter-spacing: -0.1px;
+    font-size: 40px;
     font-weight: 700;
-    color: #768696;
+    color: #ffffff;
     text-transform: uppercase;
     text-decoration: none;
-    line-height: 16px;
-    padding: 8px 24px;
 }
 
 .header-links a:not(.button):hover, .header-links a:not(.button):active {
