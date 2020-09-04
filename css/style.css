@@ -422,7 +422,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 }
 
 .text-light h1, .text-light h2, .text-light h3, .text-light h4, .text-light h5, .text-light h6, .text-light .h1, .text-light .h2, .text-light .h3, .text-light .h4, .text-light .h5, .text-light .h6 {
-    color: #fff !important;
+    color: #ffffff !important;
 }
 
 .text-sm {
@@ -585,7 +585,7 @@ button, input, select, textarea, label {
     line-height: 16px;
     text-decoration: none;
     background-color: #141516;
-    color: #4353FF !important;
+    color: #5521FF !important;
     border: none;
     height: auto;
     left: 8px;
@@ -613,11 +613,11 @@ button, input, select, textarea, label {
 }
 
 .text-primary {
-    color: #4353FF;
+    color: #5521FF;
 }
 
 .text-secondary {
-    color: #43F1FF;
+    color: #D649FF;
 }
 
 .has-top-divider {
@@ -1050,11 +1050,11 @@ button, input, select, textarea, label {
 
 .input:active, .input:focus, .textarea:active, .textarea:focus {
     outline: none;
-    border-color: #4353FF;
+    border-color: #5521FF;
 }
 
 .input[disabled], .textarea[disabled] {
-    color: #43F1FF;
+    color: #D649FF;
     background-color: #222424;
     border-color: #222424;
 }
@@ -1115,7 +1115,7 @@ button, input, select, textarea, label {
     line-height: 16px;
     text-decoration: none !important;
     background-color: #141516;
-    color: #4353FF !important;
+    color: #5521FF !important;
     border: none;
     cursor: pointer;
     justify-content: center;
@@ -1140,12 +1140,12 @@ button, input, select, textarea, label {
     right: 0;
     bottom: 0;
     left: 0;
-    box-shadow: 0 8px 48px rgba(67, 83, 255, 0.48);
+    box-shadow: 0 8px 48px rgba(85, 51, 127, 0.48);
     transition: box-shadow .15s ease;
 }
 
 .button-shadow:hover::before {
-    box-shadow: 0 8px 48px rgba(67, 83, 255, 0.6);
+    box-shadow: 0 8px 48px rgba(85, 51, 127, 0.6);
 }
 
 .button-sm {
@@ -1154,26 +1154,26 @@ button, input, select, textarea, label {
 }
 
 .button-sm.button-shadow::before {
-    box-shadow: 0 4px 32px rgba(67, 83, 255, 0.48);
+    box-shadow: 0 4px 32px rgba(85, 51, 127, 0.48);
 }
 
 .button-sm.button-shadow:hover::before {
-    box-shadow: 0 4px 32px rgba(67, 83, 255, 0.6);
+    box-shadow: 0 4px 32px rgba(85, 51, 127, 0.6);
 }
 
 .button-primary {
-    color: #fff !important;
+    color: #ffffff !important;
     transition: background .15s ease;
 }
 
 .button-primary {
-    background: #505fff;
-    background: linear-gradient(65deg, #4353FF 0, #5D6AFF 100%);
+    background: #5521FF;
+    background: linear-gradient(65deg, #5521FF 0, #A25DFF 100%);
 }
 
 .button-primary:hover {
-    background: #5564ff;
-    background: linear-gradient(65deg, #4858ff 0, #626fff 100%);
+    background: #99149E;
+    background: linear-gradient(65deg, #99149E 0, #D587E6 100%);
 }
 
 .button-block {
@@ -1209,7 +1209,7 @@ button, input, select, textarea, label {
 }
 
 .header-links a:not(.button):hover, .header-links a:not(.button):active {
-    color: #fff;
+    color: #ffffff;
 }
 
 .hero {
@@ -1325,11 +1325,11 @@ button, input, select, textarea, label {
 }
 
 #error-message {
-    color: #ff0000;
+    color: #DB504A;
 }
 
 #sucess-message {
-    color: #43F1FF;
+    color: #D649FF;
 }
 
 .feature {
