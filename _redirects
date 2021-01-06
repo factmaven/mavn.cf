@@ -30,4 +30,7 @@
 /wpengine https://shareasale.com/r.cfm?b=1255604&u=924428&m=41388&urllink=&afftrack=
 
 # Dynamic Redirects
+# Amazon Product Page
 /a/:splat https://amzn.com/:splat
+# Medium Token Login
+/m/:splat https://medium.com/m/callback/email?token=:splat&operation=login&state=medium
