@@ -4,7 +4,8 @@ let postJsonbox = (address, longUrl, shortUrl) => {
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     let data = {
         "url": longUrl,
-        "alias": shortUrl
+        "alias": shortUrl,
+        "domain": document.location.origin
     };
     request.send(JSON.stringify(data));
 };
