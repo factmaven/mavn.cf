@@ -89,7 +89,7 @@ mark {
 }
 
 small {
-    font-size: 80%;
+    font-size: 50%;
 }
 
 sub, sup {
@@ -1218,6 +1218,10 @@ button, input, select, textarea, label {
 
 .hero-paragraph {
     margin-bottom: 32px;
+}
+
+.hero-small {
+    font-size: 75%;
 }
 
 .hero-illustration {
