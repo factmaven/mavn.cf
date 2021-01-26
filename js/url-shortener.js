@@ -33,8 +33,8 @@ let getUrl = () => {
 
 let generateShortcode = () => {
     let shortcode = '';
-    let possibleCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < 5; i++) {
+    let possibleCharacters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 4; i++) {
         shortcode += possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length));
     }
     return shortcode;
