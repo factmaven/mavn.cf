@@ -32,6 +32,6 @@
 
 # Dynamic Redirects
 # Amazon Product Page
-/a/:splat https://amzn.com/:splat
+/a/* https://amzn.com/:splat
 # Medium Token Login
-/m/:splat https://medium.com/m/callback/email?token=:splat&operation=login&state=medium
+/m/* https://medium.com/m/callback/email?token=:splat&operation=login&state=medium
