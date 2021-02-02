@@ -30,8 +30,11 @@
 # Referral Links
 /r/* https://ethanosullivan.com/r/:splat
 
-# Dynamic Redirects
+# Spotify Playlists
+/s/* https://ethanosullivan.com/s/:splat
+
 # Amazon Product Page
 /a/* https://amzn.com/:splat
+
 # Medium Token Login
 /m/* https://medium.com/m/callback/email?token=:splat&operation=login&state=medium
