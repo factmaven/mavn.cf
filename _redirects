@@ -38,3 +38,6 @@
 
 # Medium Token Login
 /m/* https://medium.com/m/callback/email?token=:splat&operation=login&state=medium
+
+# BeerTech Azure DevOps Ticket
+/ado/* https://dev.azure.com/abi-ghq-audit-dsc-dev-ops/beer_tech/_workitems/edit/:splat
