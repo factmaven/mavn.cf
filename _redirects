@@ -40,7 +40,7 @@
 /m/* https://medium.com/m/callback/email?token=:splat&operation=login&state=medium
 
 # Azure DevOps Work Item
-:account.mavn.cf/:workitem https://:account.visualstudio.com/DefaultCollection/_workitems/edit/:workitem
+*.mavn.cf/* account=:account workitem=:workitem https://:account.visualstudio.com/DefaultCollection/_workitems/edit/:workitem
 
 # Microsoft Forms
 /f/cds https://forms.office.com/Pages/ResponsePage.aspx?id=GUvwznZ3lEq4mzdcd6j5Nl6hUzvynWZAvcW9uCvaiB9UNDNKNUlDU0tXWEk1TU9EU1ZBVEFCV043OS4u
