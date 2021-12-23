@@ -1,4 +1,4 @@
-var endpoint = 'https://jsonbox.io/box_0394827869549f2a7393';
+var endpoint = 'http://52.66.40.75/box_a7989c20a95c4e7be18c';
 
 function getJsonbox(urlRequest) {
     var request = new XMLHttpRequest;
